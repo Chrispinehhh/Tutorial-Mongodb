@@ -13,7 +13,7 @@ db.on('error', (err) => {
 })
 
 db.once('open', () => {
-    console.log('Db Connection Established!')
+    console.log('Database Connection Established!')
 })
 
 const app = express()
@@ -21,7 +21,7 @@ const app = express()
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-
+app.use('/uploads', express.static('uploads'))
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {

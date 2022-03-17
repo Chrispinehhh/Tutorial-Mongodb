@@ -6,7 +6,7 @@ const register   = (req, res, next) => {
     bcrypt.hash(req.body.password, 10, function(err, hashedPass) {
         if(err) {
             res.json({
-                error:err
+                error: err
             })
         }
 
@@ -15,7 +15,6 @@ const register   = (req, res, next) => {
             email: req.body.email,
             phone: req.body.phone,
             password: hashedPass
-    
         })
         user.save()
         .then(user => {
@@ -29,9 +28,8 @@ const register   = (req, res, next) => {
                 })
             })
     })
- 
     }
 
     module.exports = {
         register
-    }
+    }  
